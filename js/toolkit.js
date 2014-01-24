@@ -112,7 +112,7 @@ window.removeAccounts = new function(){
             if(access_code != '&nbsp;') id = access_code
             if(!id) continue;
 
-            if(ATkOpts.ignoreWithDescription && description == "&nbsp;") continue
+            if(ATkOpts.ignoreWithDescription && description != "&nbsp;") continue
 			
 			var ignoreThisId = false
 			for(var ignoreId = 0; ignoreId < ATkOpts.idsIgnore.length; ignoreId++){
