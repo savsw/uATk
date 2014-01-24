@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<!--
+/*******************************************************************************
+* unofficial ANTLabs toolkit (uATk) - a chrome extension.
+* Copyright 2013 Savannah Scriptworks (savsw.org).
+*
+*    This program is free software: you can redistribute it and/or modify
+*    it under the terms of the GNU General Public License as published by
+*    the Free Software Foundation, either version 3 of the License, or
+*    (at your option) any later version.
+*
+*    This program is distributed in the hope that it will be useful,
+*    but WITHOUT ANY WARRANTY; without even the implied warranty of
+*    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+*    GNU General Public License for more details.
+*
+*    You should have received a copy of the GNU General Public License
+*    along with this program.  If not, see <http://www.gnu.org/licenses/>.
+*
+* Authors:
+*   Secesh aka Matthew R Chase (matt@chasefox.net)
+*******************************************************************************/
+-->
+	<head>
+		<title>tools</title>
+		
+		<link rel="stylesheet" href="css/bootstrap.min.css" />
+		<link rel="stylesheet" href="css/datepicker.css" />
+		<link rel="stylesheet" href="css/font-awesome.min.css" />
+		<style type="text/css">
+			body{
+				width  : 600px;
+				height : 500px;
+			}
+			.panel{
+				/* fill body: */
+				height: 500px;
+			}
+			button{
+				margin-right: 8px;
+			}
+			.tapCheck{
+				/* for when it's not checked: */
+				width: 24px;
+			}
+			#info, #error, #info2, #warn2{
+				text-align: center;
+			}
+			#error, #warn2{
+				display: none;
+			}
+			#error{
+				/* to match .well, used by #info: */
+				height: 60px; line-height: 20px;
+			}
+
+			/* fixes to make datepicker input smaller: */
+			.date{
+				width: 150px;
+				display: inline-table;
+				margin-left: 8px;
+			}
+			.date input, .date span{
+				height: 24px;
+			}
+			.date span{
+				font-size: 10px;
+			}
+
+			#confirmAction{
+				display: none;
+			}
+			hr{
+				margin-top: 4px;
+			}
+		</style>
+		
+		<script src="js/jquery-2.0.3.min.js"></script>
+		<script src="js/bootstrap-datepicker.js"></script>
+		<script src="js/tools.js"></script>
+	</head>
+	<body>
+		<div class="panel panel-primary" id="chooseOptions">
+			<div class="panel-heading">
+				tools for an ANTLabs <span class="product"></span>
+			</div>
+			<div class="panel-body">
+				<div id="info" class="well">
+					This tool will delete unwanted accounts.
+				</div>
+				<div id="error" class="alert alert-danger"></div>
+
+				<form class="form-inline">
+					<div class="form-group">
+						<button class="btn btn-default btn-xs tapCheck" type="button"><i class="fa fa-check" id="rm_dryRun"></i></button>
+						dry run (count the affected accounts but don't commit changes)
+					</div>
+
+					<div class="form-group">
+						<button class="btn btn-default btn-xs tapCheck" type="button"><i class="fa fa-check" id="rm_noExpire"></i></button>
+						delete accounts with no expiration
+					</div>
+
+					<div class="form-group">
+						<button class="btn btn-default btn-xs tapCheck" type="button"><i class="fa fa-check" id="rm_validUntil"></i></button>
+						delete accounts if valid_until is older than:
+						<div class="input-group date">
+								<input id="rm_validUntilVal" type="text" class="form-control" /><span class="input-group-addon"><i class="fa fa-calendar"></i></span>
+						</div>
+					</div>
+
+					<div style="text-align: center; margin-top: 50px;">
+						<button id="deleteAccounts" type="button" class="btn btn-primary">delete accounts</button>
+					</div>
+				</form>
+			</div>
+		</div>
+		<div class="panel panel-primary" id="confirmAction">
+			<div class="panel-heading">
+				tools for an ANTLabs <span class="product"></span>
+			</div>
+			<div class="panel-body">
+				<div class="well" style="text-align: center; margin-bottom: 4px;">
+		            The plugin will use this page to perform the cleanup. 
+		            <strong>Please do not touch the page while the toolkit is working</strong>.
+		            While it is working, you may continue to use other browser tabs (just not this one).
+	           		<br /><br />
+		            You will be notified when the process is complete.<br />
+		            Click 'proceed' to cleanup accounts.
+	        	</div>
+	        	<hr />
+
+				<div id="info2" class="alert alert-info">
+					This is a dry run; no changes will be made.
+				</div>
+				<div id="warn2" class="alert alert-warning">
+					This is not a dry run; <strong>accounts will be deleted</strong>
+				</div>
+				<div class="alert alert-info">
+					<div style="text-align: center; font-weight: bold;">accounts to delete:</div>
+					<div id="actions"></div>
+				</div>
+
+        		<div style="text-align: center;">
+        			<button id="rm_back" type="button" class="btn btn-default">back</button>
+        			<button id="rm_confirmed" type="button" class="btn btn-primary">proceed</button>
+        		</div>
+        	</div>
+		</div>
+	</body>
+</html>

@@ -1,0 +1,41 @@
+{
+  "name": "Unofficial Antlabs Toolkit",
+  "version": "1.0.0",
+  "manifest_version": 2,
+  
+  "description": "Tools to help with management of ANTLabs InnGate products; not affiliated with ANTLabs.",
+  "icons": { 
+  	"16" : "ico/antlabs_s16.png",
+  	"24" : "ico/antlabs_s24.png",
+  	"32" : "ico/antlabs_s32.png",
+  	"48" : "ico/antlabs_48.png",
+  	"128": "ico/antlabs_128.png"
+  },
+  
+  "page_action": {
+    "default_icon" : "ico/antlabs_s24.png",
+    "default_title": "Unofficial ANTLabs Toolkit",
+    "default_popup": "tools.html"
+  },
+  
+  "background": { 
+  	"scripts": ["js/background.js"],
+  	"persistent": true
+  },
+  "permissions": [
+    "tabs",
+    "https://*/admin/",
+    "storage"
+  ],
+  "content_scripts": [
+  {
+    "matches": ["https://*/admin/"],
+    "css"   : [],
+    "js"    : ["js/jquery-2.0.3.min.js", "js/toolkit.js"],
+    "run_at" : "document_end"
+  }
+  ],
+
+  "web_accessible_resources": [ "js/jquery-2.0.3.min.map" ],
+  "options_page" : "options.html"
+}

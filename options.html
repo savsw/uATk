@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<!--
+/*******************************************************************************
+* unofficial ANTLabs toolkit (uATk) - a chrome extension.
+* Copyright 2013 Savannah Scriptworks (savsw.org).
+*
+*    This program is free software: you can redistribute it and/or modify
+*    it under the terms of the GNU General Public License as published by
+*    the Free Software Foundation, either version 3 of the License, or
+*    (at your option) any later version.
+*
+*    This program is distributed in the hope that it will be useful,
+*    but WITHOUT ANY WARRANTY; without even the implied warranty of
+*    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+*    GNU General Public License for more details.
+*
+*    You should have received a copy of the GNU General Public License
+*    along with this program.  If not, see <http://www.gnu.org/licenses/>.
+*
+* Authors:
+*   Secesh aka Matthew R Chase (matt@chasefox.net)
+*******************************************************************************/
+-->
+	<head>
+		<title>unofficial ANTLabs toolkit options</title>
+		
+		<link rel="stylesheet" href="css/bootstrap.min.css" />
+		<link rel="stylesheet" href="css/font-awesome.min.css" />
+		<style type="text/css">
+		body{
+			width  : 800px;
+			height : 400px;
+			margin : 0 auto;
+			text-align : center;
+		}
+		div.panel{
+			margin: 20px;
+			height: 400px;
+		}
+		.tapCheck{
+			/* for when it's not checked: */
+			width: 24px;
+			height: 24px;
+		}
+		div.footer{
+			font-size: 12px;
+			color: #999	;
+			text-align: center;
+		}
+		div.title{
+			vertical-align: middle; 
+			line-height: 60px;
+			height: 60px; 
+			border-bottom: 1px dashed;
+			display: block;
+			margin-bottom: 20px;
+		}
+		div.panel-heading h4{
+			display: inline-block;
+			margin-left: 20px;
+		}
+		</style>
+		<script src="js/jquery-2.0.3.min.js"></script>
+		<script src="js/options.js"></script>
+	</head>
+	<body >
+		<div class="panel panel-primary">
+			<div class="panel-heading">
+				<img src="ico/antlabs_48.png" />
+				<h4>Unofficial Antlabs Toolkit - Options</h4>
+			</div>
+			<div class="panel-body">
+				<form>
+					<div class="form-group">
+						<button class="btn btn-default btn-xs tapCheck" type="button"><i id="ignoreWithDescription" class="fa fa-check"></i></button>
+						don't delete accounts that have a description.
+					</div>
+					<div class="form-group form-inline">
+						enter a URL to subscribe to accounts to ignore:
+						<input id="idsIgnoreURL" class="form-control" style="width: 420px; height: 24px;" type="text" />
+					</div>
+					<div class="form-group">
+						enter a space-delimeted list of userIDs or access codes to ignore:
+						<textarea id="idsIgnore" class="form-control" rows=4></textarea>
+					</div>
+				</form>
+				<div>
+					<button type="button" class="btn btn-primary" style="margin-top: 40px;">save</button>
+				</div>
+			</div>
+		</div>
+
+		<div class="footer">
+			Copyright 2014 Savannah Scriptworks
+			(<a href="http://savsw.org" target="_blank">savsw.org</a>)
+			<div style="margin-top: 10px;">
+				This program comes with ABSOLUTELY NO WARRANTY.<br />
+	    		This is free software, and you are welcome to redistribute it under certain conditions.<br />
+				<a style="border: 0; opacity: .4;" href="http://www.gnu.org/licenses/gpl-3.0.txt"><img src="ico/gplv3-88x31.png" alt="licensed under GPLv3" /></a>
+			</div>
+		</div>
+
+	</body>
+</html>
