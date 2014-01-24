@@ -135,7 +135,7 @@ window.removeAccounts = new function(){
 	                    if(!this._options.dryRun) checkbox.checked = "checked"
 	                	this._options.accountIds.push(id)
 	                	deleted++
-	                	console.log("checked box because of noExpire")
+	                	console.log("would delete " + id + " because of noExpire")
 	                }catch(e){}
 	            }
 	        }else if(this._options.rm_validUntil){
@@ -159,7 +159,7 @@ window.removeAccounts = new function(){
                     	if(!this._options.dryRun) checkbox.checked = "checked"
 	                    this._options.accountIds.push(id)
 	                    deleted++
-		                console.log("checked box because of dates:", valid_until, this._options.validUntilVal.date)
+	                    console.log("would delete " + id + " because of date comparison")
                     }catch(e){}
                 }
 	        }
