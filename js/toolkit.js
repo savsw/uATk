@@ -106,10 +106,13 @@ window.removeAccounts = new function(){
             var userid      = rows[row].children[1].innerHTML
             var access_code = rows[row].children[2].innerHTML
             var valid_until = rows[row].children[6].innerHTML
+            var description = rows[row].children[9].innerHTML
             var id = false
             if(userid      != '&nbsp;') id = userid
             if(access_code != '&nbsp;') id = access_code
             if(!id) continue;
+
+            if(ATkOpts.ignoreWithDescription && description == "&nbsp;") continue
 			
 			var ignoreThisId = false
 			for(var ignoreId = 0; ignoreId < ATkOpts.idsIgnore.length; ignoreId++){
